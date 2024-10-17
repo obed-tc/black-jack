@@ -3,7 +3,7 @@
 <script>
 // @ts-nocheck
 import Trebol from "../assets/trebol.svg";
-import Corazon from "../assets/Corazon.svg";
+import Corazon from "../assets/corazon.svg";
 import Picas from "../assets/picas.svg";
 import Diamante from "../assets/diamante.svg";
     export let numberCard;
