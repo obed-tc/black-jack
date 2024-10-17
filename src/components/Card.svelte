@@ -43,11 +43,11 @@
 </script>
 
 <button on:click={girarCarta}> Girar </button>
-<div class="carta-box w-[15vw] h-[50vh] {reverse ? 'rotar' : ''}">
+<div class="carta-box w-[10vw] h-[30vh] {reverse ? 'rotar' : ''}">
   <div class="carta">
     <div class="cara">
       <div
-        class="bg-white shadow-xl rounded-lg min-w-[15vw] max-w-[15vw] h-[50vh] p-3 flex flex-col"
+        class="bg-white shadow-xl rounded-lg min-w-[10vw] max-w-[10vw] h-[30vh] p-3 flex flex-col"
       >
         <div class=" ">
           <p class="font-bold ml-1">{cards[numberCard]}</p>
@@ -125,7 +125,7 @@
         </div>
       </div>
     </div>
-    <div class="cara detras h-[50vh]">
+    <div class="cara detras h-[30vh]">
       <img src={Background} alt="" class="h-full w-full rounded-lg" />
     </div>
   </div>
