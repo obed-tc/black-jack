@@ -1,0 +1,22 @@
+.carta-box {
+    position: relative;
+    perspective: 1000px;
+  }
+  
+  .rotar .carta {
+      transform: rotateY(180deg);
+  }
+  
+  .carta {
+    transform-style: preserve-3d;
+    transition: all 0.5s linear;
+  }
+  
+  .cara {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .cara.detras {
+    transform: rotateY(180deg);
+  }

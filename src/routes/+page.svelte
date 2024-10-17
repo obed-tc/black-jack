@@ -1,10 +1,8 @@
-
 <script lang="ts">
   import Card from "../components/Card.svelte";
 
-
-    let cardSelected:any=null;
-    let cartas = [
+  let cardSelected: any = null;
+  let cartas = [
     { numberCard: 1, sign: "trebol" },
     { numberCard: 2, sign: "trebol" },
     { numberCard: 3, sign: "trebol" },
@@ -56,48 +54,45 @@
     { numberCard: 10, sign: "diamante" },
     { numberCard: 11, sign: "diamante" }, // Sota
     { numberCard: 12, sign: "diamante" }, // Caballo
-    { numberCard: 13, sign: "diamante" }  // Rey
-];
+    { numberCard: 13, sign: "diamante" }, // Rey
+  ];
 
-    let cartasGame = [...cartas];
+  let cartasGame = [...cartas];
 
+  function getCardPlayer() {
+    let randomIndex = Math.floor(Math.random() * cartasGame.length);
+    cardSelected = cartasGame[randomIndex];
+    cartasGame.splice(randomIndex, 1);
+    cartasGame = [...cartasGame];
 
-
-    function getCardPlayer(){
-        let randomIndex = Math.floor(Math.random() * cartasGame.length);
-        cardSelected = cartasGame[randomIndex];
-        cartasGame.splice(randomIndex, 1);
-        cartasGame = [...cartasGame];
-
-    
     console.log(`Carta seleccionada:`, cardSelected);
     console.log(`Cartas restantes:`, cartasGame);
-
-    }
-
-
+  }
 </script>
 
 <div class=" bg-gray-200 min-h-screen">
-{cartas.length}
-    <!-- <div class="flex">
+  {cartas.length}
+  <!-- <div class="flex">
         {#each cartas as carta }
         <Card  numberCard={carta.numberCard} sign={carta.sign}></Card>
         {/each}
     </div> -->
 
-{#if cardSelected}
-    <Card  numberCard={cardSelected.numberCard} sign={cardSelected.sign}></Card>
-    
-{/if}
+  {#if cardSelected}
+    <Card
+      numberCard={cardSelected.numberCard}
+      sign={cardSelected.sign}
+      reverse={true}
+    ></Card>
+  {/if}
 
-<br/>
+  <br />
 
-
-    <button class="bg-green-500 py-2 px-6 rounded-full text-white cursor-pointer absolute z-20" on:click={getCardPlayer}>
-        Iniciar
-        {cartasGame.length}
-
-    </button>
-
+  <button
+    class="bg-green-500 py-2 px-6 rounded-full text-white cursor-pointer absolute z-20"
+    on:click={getCardPlayer}
+  >
+    Iniciar
+    {cartasGame.length}
+  </button>
 </div>
