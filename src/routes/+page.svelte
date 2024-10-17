@@ -1,5 +1,7 @@
 <script lang="ts">
   import Card from "../components/Card.svelte";
+  import Footer from "../components/Footer.svelte";
+  import Header from "../components/Header.svelte";
 
   let cardSelected: any = null;
   let cartas = [
@@ -64,35 +66,39 @@
     cardSelected = cartasGame[randomIndex];
     cartasGame.splice(randomIndex, 1);
     cartasGame = [...cartasGame];
-
     console.log(`Carta seleccionada:`, cardSelected);
     console.log(`Cartas restantes:`, cartasGame);
   }
 </script>
 
-<div class=" bg-gray-200 min-h-screen">
-  {cartas.length}
-  <!-- <div class="flex">
-        {#each cartas as carta }
-        <Card  numberCard={carta.numberCard} sign={carta.sign}></Card>
-        {/each}
-    </div> -->
+<div class=" bg-green-950 min-h-screen pt-[10vh] flex flex-col">
+  <Header></Header>
 
-  {#if cardSelected}
-    <Card
-      numberCard={cardSelected.numberCard}
-      sign={cardSelected.sign}
-      reverse={true}
-    ></Card>
-  {/if}
+  <main class="flex-1">
+    {cartas.length}
+    <!-- <div class="flex">
+          {#each cartas as carta }
+          <Card  numberCard={carta.numberCard} sign={carta.sign}></Card>
+          {/each}
+      </div> -->
 
-  <br />
+    {#if cardSelected}
+      <Card
+        numberCard={cardSelected.numberCard}
+        sign={cardSelected.sign}
+        reverse={true}
+      ></Card>
+    {/if}
 
-  <button
-    class="bg-green-500 py-2 px-6 rounded-full text-white cursor-pointer absolute z-20"
-    on:click={getCardPlayer}
-  >
-    Iniciar
-    {cartasGame.length}
-  </button>
+    <br />
+
+    <button
+      class="bg-green-500 py-2 px-6 rounded-full text-white cursor-pointer absolute z-20"
+      on:click={getCardPlayer}
+    >
+      Iniciar
+      {cartasGame.length}
+    </button>
+  </main>
+  <Footer></Footer>
 </div>
