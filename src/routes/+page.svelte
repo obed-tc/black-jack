@@ -4,178 +4,30 @@
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
   import TableBlackJack from "../assets/images/table-black-jack.png";
-
+  import { Cartas } from "../constanst/cartas";
+  import Modal from "../components/Modal.svelte";
   let cardSelected: any = null;
-  let cartas = [
-    { numberCard: 1, sign: "trebol" },
-    { numberCard: 2, sign: "trebol" },
-    { numberCard: 3, sign: "trebol" },
-    { numberCard: 4, sign: "trebol" },
-    { numberCard: 5, sign: "trebol" },
-    { numberCard: 6, sign: "trebol" },
-    { numberCard: 7, sign: "trebol" },
-    { numberCard: 8, sign: "trebol" },
-    { numberCard: 9, sign: "trebol" },
-    { numberCard: 10, sign: "trebol" },
-    { numberCard: 11, sign: "trebol" }, // Sota
-    { numberCard: 12, sign: "trebol" }, // Caballo
-    { numberCard: 13, sign: "trebol" }, // Rey
-    { numberCard: 1, sign: "diamante" },
-    { numberCard: 2, sign: "diamante" },
-    { numberCard: 3, sign: "diamante" },
-    { numberCard: 4, sign: "diamante" },
-    { numberCard: 5, sign: "diamante" },
-    { numberCard: 6, sign: "diamante" },
-    { numberCard: 7, sign: "diamante" },
-    { numberCard: 8, sign: "diamante" },
-    { numberCard: 9, sign: "diamante" },
-    { numberCard: 10, sign: "diamante" },
-    { numberCard: 11, sign: "diamante" }, // Sota
-    { numberCard: 12, sign: "diamante" }, // Caballo
-    { numberCard: 13, sign: "diamante" }, // Rey
-    { numberCard: 1, sign: "corazon" },
-    { numberCard: 2, sign: "corazon" },
-    { numberCard: 3, sign: "corazon" },
-    { numberCard: 4, sign: "corazon" },
-    { numberCard: 5, sign: "corazon" },
-    { numberCard: 6, sign: "corazon" },
-    { numberCard: 7, sign: "corazon" },
-    { numberCard: 8, sign: "corazon" },
-    { numberCard: 9, sign: "corazon" },
-    { numberCard: 10, sign: "corazon" },
-    { numberCard: 11, sign: "corazon" }, // Sota
-    { numberCard: 12, sign: "corazon" }, // Caballo
-    { numberCard: 13, sign: "corazon" }, // Rey
-    { numberCard: 1, sign: "diamante" },
-    { numberCard: 2, sign: "diamante" },
-    { numberCard: 3, sign: "diamante" },
-    { numberCard: 4, sign: "diamante" },
-    { numberCard: 5, sign: "diamante" },
-    { numberCard: 6, sign: "diamante" },
-    { numberCard: 7, sign: "diamante" },
-    { numberCard: 8, sign: "diamante" },
-    { numberCard: 9, sign: "diamante" },
-    { numberCard: 10, sign: "diamante" },
-    { numberCard: 11, sign: "diamante" }, // Sota
-    { numberCard: 12, sign: "diamante" }, // Caballo
-    { numberCard: 13, sign: "diamante" }, // Rey
-
-    { numberCard: 1, sign: "trebol" },
-    { numberCard: 2, sign: "trebol" },
-    { numberCard: 3, sign: "trebol" },
-    { numberCard: 4, sign: "trebol" },
-    { numberCard: 5, sign: "trebol" },
-    { numberCard: 6, sign: "trebol" },
-    { numberCard: 7, sign: "trebol" },
-    { numberCard: 8, sign: "trebol" },
-    { numberCard: 9, sign: "trebol" },
-    { numberCard: 10, sign: "trebol" },
-    { numberCard: 11, sign: "trebol" }, // Sota
-    { numberCard: 12, sign: "trebol" }, // Caballo
-    { numberCard: 13, sign: "trebol" }, // Rey
-    { numberCard: 1, sign: "diamante" },
-    { numberCard: 2, sign: "diamante" },
-    { numberCard: 3, sign: "diamante" },
-    { numberCard: 4, sign: "diamante" },
-    { numberCard: 5, sign: "diamante" },
-    { numberCard: 6, sign: "diamante" },
-    { numberCard: 7, sign: "diamante" },
-    { numberCard: 8, sign: "diamante" },
-    { numberCard: 9, sign: "diamante" },
-    { numberCard: 10, sign: "diamante" },
-    { numberCard: 11, sign: "diamante" }, // Sota
-    { numberCard: 12, sign: "diamante" }, // Caballo
-    { numberCard: 13, sign: "diamante" }, // Rey
-    { numberCard: 1, sign: "corazon" },
-    { numberCard: 2, sign: "corazon" },
-    { numberCard: 3, sign: "corazon" },
-    { numberCard: 4, sign: "corazon" },
-    { numberCard: 5, sign: "corazon" },
-    { numberCard: 6, sign: "corazon" },
-    { numberCard: 7, sign: "corazon" },
-    { numberCard: 8, sign: "corazon" },
-    { numberCard: 9, sign: "corazon" },
-    { numberCard: 10, sign: "corazon" },
-    { numberCard: 11, sign: "corazon" }, // Sota
-    { numberCard: 12, sign: "corazon" }, // Caballo
-    { numberCard: 13, sign: "corazon" }, // Rey
-    { numberCard: 1, sign: "diamante" },
-    { numberCard: 2, sign: "diamante" },
-    { numberCard: 3, sign: "diamante" },
-    { numberCard: 4, sign: "diamante" },
-    { numberCard: 5, sign: "diamante" },
-    { numberCard: 6, sign: "diamante" },
-    { numberCard: 7, sign: "diamante" },
-    { numberCard: 8, sign: "diamante" },
-    { numberCard: 9, sign: "diamante" },
-    { numberCard: 10, sign: "diamante" },
-    { numberCard: 11, sign: "diamante" }, // Sota
-    { numberCard: 12, sign: "diamante" }, // Caballo
-    { numberCard: 13, sign: "diamante" }, // Rey
-
-    { numberCard: 1, sign: "trebol" },
-    { numberCard: 2, sign: "trebol" },
-    { numberCard: 3, sign: "trebol" },
-    { numberCard: 4, sign: "trebol" },
-    { numberCard: 5, sign: "trebol" },
-    { numberCard: 6, sign: "trebol" },
-    { numberCard: 7, sign: "trebol" },
-    { numberCard: 8, sign: "trebol" },
-    { numberCard: 9, sign: "trebol" },
-    { numberCard: 10, sign: "trebol" },
-    { numberCard: 11, sign: "trebol" }, // Sota
-    { numberCard: 12, sign: "trebol" }, // Caballo
-    { numberCard: 13, sign: "trebol" }, // Rey
-    { numberCard: 1, sign: "diamante" },
-    { numberCard: 2, sign: "diamante" },
-    { numberCard: 3, sign: "diamante" },
-    { numberCard: 4, sign: "diamante" },
-    { numberCard: 5, sign: "diamante" },
-    { numberCard: 6, sign: "diamante" },
-    { numberCard: 7, sign: "diamante" },
-    { numberCard: 8, sign: "diamante" },
-    { numberCard: 9, sign: "diamante" },
-    { numberCard: 10, sign: "diamante" },
-    { numberCard: 11, sign: "diamante" }, // Sota
-    { numberCard: 12, sign: "diamante" }, // Caballo
-    { numberCard: 13, sign: "diamante" }, // Rey
-    { numberCard: 1, sign: "corazon" },
-    { numberCard: 2, sign: "corazon" },
-    { numberCard: 3, sign: "corazon" },
-    { numberCard: 4, sign: "corazon" },
-    { numberCard: 5, sign: "corazon" },
-    { numberCard: 6, sign: "corazon" },
-    { numberCard: 7, sign: "corazon" },
-    { numberCard: 8, sign: "corazon" },
-    { numberCard: 9, sign: "corazon" },
-    { numberCard: 10, sign: "corazon" },
-    { numberCard: 11, sign: "corazon" }, // Sota
-    { numberCard: 12, sign: "corazon" }, // Caballo
-    { numberCard: 13, sign: "corazon" }, // Rey
-    { numberCard: 1, sign: "diamante" },
-    { numberCard: 2, sign: "diamante" },
-    { numberCard: 3, sign: "diamante" },
-    { numberCard: 4, sign: "diamante" },
-    { numberCard: 5, sign: "diamante" },
-    { numberCard: 6, sign: "diamante" },
-    { numberCard: 7, sign: "diamante" },
-    { numberCard: 8, sign: "diamante" },
-    { numberCard: 9, sign: "diamante" },
-    { numberCard: 10, sign: "diamante" },
-    { numberCard: 11, sign: "diamante" }, // Sota
-    { numberCard: 12, sign: "diamante" }, // Caballo
-    { numberCard: 13, sign: "diamante" }, // Rey
-  ];
+  let cartas = Cartas;
 
   let cartasGame = [...cartas];
   let deeler: any[] = [];
   let player: any[] = [];
   let score: any[] = [];
   let deelerScore: any[] = [0, 0];
-
+  let isRender = false;
   onMount(() => {
     distributeCards();
   });
+  let isModalOpen = false;
+
+  function openModal() {
+    isModalOpen = true;
+  }
+
+  function closeModal() {
+    isModalOpen = false;
+    reset();
+  }
   function getCard() {
     let randomIndex = Math.floor(Math.random() * cartasGame.length);
     cardSelected = cartasGame[randomIndex];
@@ -224,6 +76,23 @@
     score = score;
     getResult();
   }
+
+  function getNear21(lista: any[]) {
+    let x = lista[0];
+    let y = lista[1];
+    if (x <= 21 && y <= 21) {
+      return 21 - x >= 21 - y ? y : x;
+    }
+    if (x > 21) {
+      if (y > 21) {
+        return 0;
+      } else {
+        return y;
+      }
+    } else {
+      return y;
+    }
+  }
   function getScoreDeeler() {
     deelerScore = [0, 0];
     deeler.map((item) => {
@@ -246,7 +115,8 @@
 
   function getResult() {
     if (score[0] > 21 && score[1] > 21) {
-      alert("Perdiste");
+      console.log("Perdiste");
+      openModal();
     }
   }
   function stopPlayer() {
@@ -255,12 +125,62 @@
     deeler = [...deeler];
 
     getScoreDeeler();
+
     for (let i = 0; i < 10; i++) {
-      if (deelerScore[0] <= 17) {
+      if (deelerScore[0] < 17) {
         addCardDeeler();
       } else {
-        return;
+        break;
       }
+    }
+
+    for (let i = 0; i < 10; i++) {
+      let puntoTotalDeeler = getNear21(deelerScore);
+      console.log("============");
+      console.log(deelerScore);
+      console.log(puntoTotalDeeler);
+      console.log("============");
+
+      if (puntoTotalDeeler < 17 && puntoTotalDeeler > 0) {
+        addCardDeeler();
+      } else if (puntoTotalDeeler == 0) {
+        console.log("terminando for");
+        break;
+      } else {
+        break;
+      }
+    }
+
+    console.log("Punto deeler");
+    console.log(getNear21(deelerScore));
+    console.log("Punto jugador");
+
+    console.log(getNear21(score));
+    openModal();
+  }
+  function getWinner() {
+    let datoPlayer = getNear21(score);
+    let datoBot = getNear21(deelerScore);
+
+    let player = 21 - datoPlayer;
+    let bot = 21 - datoBot;
+
+    if (player == 21) {
+      return "Perdiste";
+    }
+
+    console.log("JAJAJAJ");
+    console.log(21 - getNear21(score));
+    console.log(bot);
+    console.log(player);
+    if (bot == player) {
+      return "Empate";
+    }
+
+    if (bot < player && bot >= 0 && player >= 0) {
+      return "Ganador Deeler";
+    } else {
+      return "Ganador Jugador";
     }
   }
   function reset() {
@@ -268,12 +188,21 @@
     player = [];
     score = [0, 0];
     deelerScore = [0, 0];
+    isRender = false;
     distributeCards();
+  }
+  function render() {
+    isRender = true;
+    openModal();
   }
 </script>
 
 <div class=" bg-[#00493a] min-h-screen pt-[10vh] flex flex-col">
-  <Header></Header>
+  <Modal isOpen={isModalOpen} {closeModal}>
+    <div>
+      <p>{isRender ? "Perdiste por rendición" : getWinner()}</p>
+    </div>
+  </Modal>
 
   <main class="flex-1 flex flex-col items-center">
     <!-- <img src={TableBlackJack} alt="" class="w-[70vw] relative z-0" /> -->
@@ -316,7 +245,9 @@
           <p class="text-white text-3xl font-semibold">
             {deelerScore[0] == 0 && deelerScore[1] == 0
               ? deeler[0].card.numberCard
-              : deelerScore}
+              : deelerScore[0] == deelerScore[1]
+                ? deelerScore[0]
+                : getNear21(deelerScore)}
           </p>
         {/if}
       </div>
@@ -333,7 +264,8 @@
         </div>
 
         <p class="text-white text-3xl font-semibold">
-          {score}
+          {score[0] == score[1] ? score[0] : score}
+          {getNear21(score) == 0 ? "Perdiste" : ""}
         </p>
       </div>
       <!-- {#if cardSelected}
@@ -361,11 +293,11 @@
       <div class="flex space-x-5">
         <button
           class="bg-black uppercase font-bold px-6 py-3 rounded-lg text-white w-[12vw] h-[10vh] text-2xl"
-          on:click={addCardPlayer}>Rendirse</button
+          on:click={render}>Rendirse</button
         >
         <button
           class="bg-black uppercase font-bold px-6 py-3 rounded-lg text-white w-[12vw] h-[10vh] text-2xl"
-          on:click={reset}>Empezar</button
+          on:click={reset}>Nuevo</button
         >
       </div>
     </div>
