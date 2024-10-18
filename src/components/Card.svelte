@@ -42,28 +42,29 @@
   }
 </script>
 
-<button on:click={girarCarta}> Girar </button>
-<div class="carta-box w-[10vw] h-[30vh] {reverse ? 'rotar' : ''}">
+<div class="carta-box shadow-lg w-[6.5vw] h-[20vh] {reverse ? 'rotar' : ''}">
   <div class="carta">
     <div class="cara">
       <div
-        class="bg-white shadow-xl rounded-lg min-w-[10vw] max-w-[10vw] h-[30vh] p-3 flex flex-col"
+        class="bg-white shadow-xl rounded-lg min-w-[6.5vw] max-w-[6.5vw] h-[20vh] p-1 flex flex-col"
       >
         <div class=" ">
-          <p class="font-bold ml-1">{cards[numberCard]}</p>
-          <img src={icono} class="w-[20px]" alt="" />
+          <p class="font-bold">{cards[numberCard]}</p>
+          <img src={icono} class="w-[12px]" alt="" />
         </div>
-        <div class="flex-1">
+
+        <div class="flex-1 flex justify-center">
           {#if numberCard <= 3}
             <div
-              class="flex flex-col h-full items-center {numberCard == 1
+              class="flex flex-col space-y-3 absolute mt-[-40px] h-full justify-center {numberCard ==
+              1
                 ? 'justify-center'
-                : 'justify-between'}"
+                : ''}"
             >
               {#each Array(numberCard) as _, index}
                 <img
                   src={icono}
-                  class={numberCard != 1 ? "w-[35px]" : "w-[100px]"}
+                  class={numberCard != 1 ? "w-[3vh]" : "w-[40px]"}
                   alt=""
                 />
               {/each}
@@ -71,61 +72,68 @@
           {/if}
 
           {#if numberCard >= 4 && numberCard < 10}
-            <div class="flex h-full items-center justify-around px-5">
-              <div class="flex flex-col justify-between h-full">
+            <div class="flex h-full absolute items-center mt-[-40px]">
+              <div class="flex flex-col space-y-3">
                 {#each Array(parseInt((numberCard / 2).toString())) as _, index}
-                  <img src={icono} class="w-[35px]" alt="" />
+                  <img src={icono} class="w-[2.5vh]" alt="" />
                 {/each}
               </div>
               {#if numberCard % 2 != 0}
-                <img src={icono} class="w-[35px]" alt="" />
+                <img src={icono} class="w-[2.5vh] mx-[0.2vw]" alt="" />
               {/if}
-              <div class="flex flex-col justify-between h-full">
+              {#if numberCard % 2 == 0}
+                <div class="w-[14px]"></div>
+              {/if}
+              <div class="flex flex-col space-y-3">
                 {#each Array(parseInt((numberCard / 2).toString())) as _, index}
-                  <img src={icono} class="w-[35px]" alt="" />
+                  <img src={icono} class="w-[2.5vh]" alt="" />
                 {/each}
               </div>
             </div>
           {/if}
 
-          <div class="h-full flex flex-col justify-between space-y-7">
+          <div
+            class="absolute flex flex-col justify-center mt-[-40px] h-full space-y-2"
+          >
             {#if numberCard == 10}
               {#each Array(parseInt((numberCard / 4).toString())) as _, index}
-                <div class="flex h-full items-center justify-around px-5">
-                  <div class="flex flex-col justify-between h-full">
+                <div class="flex space-x-1">
+                  <div class="flex flex-col space-y-3">
                     {#each Array(parseInt((numberCard / 4).toString())) as _, index}
-                      <img src={icono} class="w-[35px]" alt="" />
+                      <img src={icono} class="w-[2vh]" alt="" />
                     {/each}
                   </div>
                   {#if (numberCard / 2) % 2 != 0}
-                    <img src={icono} class="w-[35px]" alt="" />
+                    <img src={icono} class="w-[2vh]" alt="" />
                   {/if}
-                  <div class="flex flex-col justify-between h-full">
+                  <div class="flex flex-col space-y-3">
                     {#each Array(parseInt((numberCard / 4).toString())) as _, index}
-                      <img src={icono} class="w-[35px]" alt="" />
+                      <img src={icono} class="w-[2vh]" alt="" />
                     {/each}
                   </div>
                 </div>
               {/each}
             {/if}
+          </div>
 
+          <div class="h-full flex flex-col justify-between space-y-2">
             {#if numberCard >= 11}
-              <div class="flex flex-col items-center justify-center h-full">
-                <p class="text-[50px] font-bold">{cards[numberCard]}</p>
+              <div class="flex flex-col items-center justify-center">
+                <p class="text-[18px] font-bold">{cards[numberCard]}</p>
 
-                <img src={icono} class="w-[50px] -mt-1" alt="" />
+                <img src={icono} class="w-[30px] -mt-1" alt="" />
               </div>
             {/if}
           </div>
         </div>
 
         <div class="  rotate-180">
-          <p class="font-bold ml-1">{cards[numberCard]}</p>
-          <img src={icono} class="w-[20px]" alt="" />
+          <p class="font-bold">{cards[numberCard]}</p>
+          <img src={icono} class="w-[12px]" alt="" />
         </div>
       </div>
     </div>
-    <div class="cara detras h-[30vh]">
+    <div class="cara detras h-[20vh] w-[6.5vw]">
       <img src={Background} alt="" class="h-full w-full rounded-lg" />
     </div>
   </div>

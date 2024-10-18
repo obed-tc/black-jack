@@ -3,9 +3,116 @@
   import Card from "../components/Card.svelte";
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
+  import TableBlackJack from "../assets/images/table-black-jack.png";
 
   let cardSelected: any = null;
   let cartas = [
+    { numberCard: 1, sign: "trebol" },
+    { numberCard: 2, sign: "trebol" },
+    { numberCard: 3, sign: "trebol" },
+    { numberCard: 4, sign: "trebol" },
+    { numberCard: 5, sign: "trebol" },
+    { numberCard: 6, sign: "trebol" },
+    { numberCard: 7, sign: "trebol" },
+    { numberCard: 8, sign: "trebol" },
+    { numberCard: 9, sign: "trebol" },
+    { numberCard: 10, sign: "trebol" },
+    { numberCard: 11, sign: "trebol" }, // Sota
+    { numberCard: 12, sign: "trebol" }, // Caballo
+    { numberCard: 13, sign: "trebol" }, // Rey
+    { numberCard: 1, sign: "diamante" },
+    { numberCard: 2, sign: "diamante" },
+    { numberCard: 3, sign: "diamante" },
+    { numberCard: 4, sign: "diamante" },
+    { numberCard: 5, sign: "diamante" },
+    { numberCard: 6, sign: "diamante" },
+    { numberCard: 7, sign: "diamante" },
+    { numberCard: 8, sign: "diamante" },
+    { numberCard: 9, sign: "diamante" },
+    { numberCard: 10, sign: "diamante" },
+    { numberCard: 11, sign: "diamante" }, // Sota
+    { numberCard: 12, sign: "diamante" }, // Caballo
+    { numberCard: 13, sign: "diamante" }, // Rey
+    { numberCard: 1, sign: "corazon" },
+    { numberCard: 2, sign: "corazon" },
+    { numberCard: 3, sign: "corazon" },
+    { numberCard: 4, sign: "corazon" },
+    { numberCard: 5, sign: "corazon" },
+    { numberCard: 6, sign: "corazon" },
+    { numberCard: 7, sign: "corazon" },
+    { numberCard: 8, sign: "corazon" },
+    { numberCard: 9, sign: "corazon" },
+    { numberCard: 10, sign: "corazon" },
+    { numberCard: 11, sign: "corazon" }, // Sota
+    { numberCard: 12, sign: "corazon" }, // Caballo
+    { numberCard: 13, sign: "corazon" }, // Rey
+    { numberCard: 1, sign: "diamante" },
+    { numberCard: 2, sign: "diamante" },
+    { numberCard: 3, sign: "diamante" },
+    { numberCard: 4, sign: "diamante" },
+    { numberCard: 5, sign: "diamante" },
+    { numberCard: 6, sign: "diamante" },
+    { numberCard: 7, sign: "diamante" },
+    { numberCard: 8, sign: "diamante" },
+    { numberCard: 9, sign: "diamante" },
+    { numberCard: 10, sign: "diamante" },
+    { numberCard: 11, sign: "diamante" }, // Sota
+    { numberCard: 12, sign: "diamante" }, // Caballo
+    { numberCard: 13, sign: "diamante" }, // Rey
+
+    { numberCard: 1, sign: "trebol" },
+    { numberCard: 2, sign: "trebol" },
+    { numberCard: 3, sign: "trebol" },
+    { numberCard: 4, sign: "trebol" },
+    { numberCard: 5, sign: "trebol" },
+    { numberCard: 6, sign: "trebol" },
+    { numberCard: 7, sign: "trebol" },
+    { numberCard: 8, sign: "trebol" },
+    { numberCard: 9, sign: "trebol" },
+    { numberCard: 10, sign: "trebol" },
+    { numberCard: 11, sign: "trebol" }, // Sota
+    { numberCard: 12, sign: "trebol" }, // Caballo
+    { numberCard: 13, sign: "trebol" }, // Rey
+    { numberCard: 1, sign: "diamante" },
+    { numberCard: 2, sign: "diamante" },
+    { numberCard: 3, sign: "diamante" },
+    { numberCard: 4, sign: "diamante" },
+    { numberCard: 5, sign: "diamante" },
+    { numberCard: 6, sign: "diamante" },
+    { numberCard: 7, sign: "diamante" },
+    { numberCard: 8, sign: "diamante" },
+    { numberCard: 9, sign: "diamante" },
+    { numberCard: 10, sign: "diamante" },
+    { numberCard: 11, sign: "diamante" }, // Sota
+    { numberCard: 12, sign: "diamante" }, // Caballo
+    { numberCard: 13, sign: "diamante" }, // Rey
+    { numberCard: 1, sign: "corazon" },
+    { numberCard: 2, sign: "corazon" },
+    { numberCard: 3, sign: "corazon" },
+    { numberCard: 4, sign: "corazon" },
+    { numberCard: 5, sign: "corazon" },
+    { numberCard: 6, sign: "corazon" },
+    { numberCard: 7, sign: "corazon" },
+    { numberCard: 8, sign: "corazon" },
+    { numberCard: 9, sign: "corazon" },
+    { numberCard: 10, sign: "corazon" },
+    { numberCard: 11, sign: "corazon" }, // Sota
+    { numberCard: 12, sign: "corazon" }, // Caballo
+    { numberCard: 13, sign: "corazon" }, // Rey
+    { numberCard: 1, sign: "diamante" },
+    { numberCard: 2, sign: "diamante" },
+    { numberCard: 3, sign: "diamante" },
+    { numberCard: 4, sign: "diamante" },
+    { numberCard: 5, sign: "diamante" },
+    { numberCard: 6, sign: "diamante" },
+    { numberCard: 7, sign: "diamante" },
+    { numberCard: 8, sign: "diamante" },
+    { numberCard: 9, sign: "diamante" },
+    { numberCard: 10, sign: "diamante" },
+    { numberCard: 11, sign: "diamante" }, // Sota
+    { numberCard: 12, sign: "diamante" }, // Caballo
+    { numberCard: 13, sign: "diamante" }, // Rey
+
     { numberCard: 1, sign: "trebol" },
     { numberCard: 2, sign: "trebol" },
     { numberCard: 3, sign: "trebol" },
@@ -159,72 +266,109 @@
   function reset() {
     deeler = [];
     player = [];
-    score = [];
+    score = [0, 0];
     deelerScore = [0, 0];
     distributeCards();
   }
 </script>
 
-<div class=" bg-green-950 min-h-screen pt-[10vh] flex flex-col">
+<div class=" bg-[#00493a] min-h-screen pt-[10vh] flex flex-col">
   <Header></Header>
 
-  <main class="flex-1">
-    <p class="text-white text-4xl">
-      Tu puntaje: {score}
-    </p>
-    {#if deeler[0]}
-      <p class="text-white text-4xl">
-        Puntaje mesa: {deelerScore[0] == 0 && deelerScore[1] == 0
-          ? deeler[0].card.numberCard
-          : deelerScore}
+  <main class="flex-1 flex flex-col items-center">
+    <!-- <img src={TableBlackJack} alt="" class="w-[70vw] relative z-0" /> -->
+    <div class="absolute flex flex-col justify-center">
+      <img src={TableBlackJack} alt="" class="w-[75vw] z-0 relative" />
+      <p
+        class="absolute text-green-800 text-2xl z-20 top-20 w-full text-center font-semibold"
+      >
+        Black Jack
       </p>
-    {/if}
-
-    {cartas.length}
-    <div class="flex">
-      {#each player as carta}
-        <Card
-          numberCard={carta.card.numberCard}
-          sign={carta.card.sign}
-          reverse={carta.reverse}
-        ></Card>
-      {/each}
+      <!-- Contenido dentro del div -->
     </div>
 
-    <div class="flex">
-      {#each deeler as carta}
+    <div class="absolute z-20 flex flex-col justify-between h-[86vh]">
+      <!-- <p class="text-white text-xl">
+        Tu puntaje: {score}
+      </p>
+      {#if deeler[0]}
+        <p class="text-white text-xl">
+          Puntaje mesa: {deelerScore[0] == 0 && deelerScore[1] == 0
+            ? deeler[0].card.numberCard
+            : deelerScore}
+        </p>
+      {/if} -->
+
+      <!-- {cartas.length} -->
+
+      <div class="flex flex-col justify-center items-center">
+        <div class="flex space-x-3 mt-20 justify-center">
+          {#each deeler as carta}
+            <Card
+              numberCard={carta.card.numberCard}
+              sign={carta.card.sign}
+              reverse={carta.reverse}
+            ></Card>
+          {/each}
+        </div>
+
+        {#if deeler[0]}
+          <p class="text-white text-3xl font-semibold">
+            {deelerScore[0] == 0 && deelerScore[1] == 0
+              ? deeler[0].card.numberCard
+              : deelerScore}
+          </p>
+        {/if}
+      </div>
+
+      <div class="flex flex-col space-y-4 items-center">
+        <div class="flex space-x-2">
+          {#each player as carta}
+            <Card
+              numberCard={carta.card.numberCard}
+              sign={carta.card.sign}
+              reverse={carta.reverse}
+            ></Card>
+          {/each}
+        </div>
+
+        <p class="text-white text-3xl font-semibold">
+          {score}
+        </p>
+      </div>
+      <!-- {#if cardSelected}
         <Card
-          numberCard={carta.card.numberCard}
-          sign={carta.card.sign}
-          reverse={carta.reverse}
+          numberCard={cardSelected.numberCard}
+          sign={cardSelected.sign}
+          reverse={true}
         ></Card>
-      {/each}
+      {/if} -->
     </div>
 
-    <!-- {#if cardSelected}
-      <Card
-        numberCard={cardSelected.numberCard}
-        sign={cardSelected.sign}
-        reverse={true}
-      ></Card>
-    {/if} -->
-
-    <br />
-
-    <button
-      class="bg-green-500 px-6 py-2 rounded-full text-white"
-      on:click={addCardPlayer}>Pedir</button
+    <div
+      class=" bg-black bg-opacity-30 py-3 absolute bottom-0 w-full flex justify-between px-[5vw]"
     >
-
-    <button
-      class="bg-green-500 px-6 py-2 rounded-full text-white"
-      on:click={stopPlayer}>Parar</button
-    >
-
-    <button
-      class="bg-green-500 px-6 py-2 rounded-full text-white"
-      on:click={reset}>Empezar de nuevo</button
-    >
+      <div class="flex space-x-5">
+        <button
+          class="bg-black uppercase font-bold px-6 py-3 rounded-lg text-white w-[12vw] h-[10vh] text-2xl"
+          on:click={stopPlayer}>Parar</button
+        >
+        <button
+          class="bg-black uppercase font-bold px-6 py-3 rounded-lg text-white w-[12vw] h-[10vh] text-2xl"
+          on:click={addCardPlayer}>Pedir</button
+        >
+      </div>
+      <div class="flex space-x-5">
+        <button
+          class="bg-black uppercase font-bold px-6 py-3 rounded-lg text-white w-[12vw] h-[10vh] text-2xl"
+          on:click={addCardPlayer}>Rendirse</button
+        >
+        <button
+          class="bg-black uppercase font-bold px-6 py-3 rounded-lg text-white w-[12vw] h-[10vh] text-2xl"
+          on:click={reset}>Empezar</button
+        >
+      </div>
+    </div>
     <!-- <button
       class="bg-green-500 py-2 px-6 rounded-full text-white cursor-pointer absolute z-20"
       on:click={distributeCards}
@@ -233,5 +377,5 @@
       {cartasGame.length}
     </button> -->
   </main>
-  <Footer></Footer>
+  <!-- <Footer></Footer> -->
 </div>
